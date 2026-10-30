@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c2d">
+  <meta name="description" content="Bioinformatics portfolio of Narges Shayesteh: RNA-seq, single-cell analysis, R/Bioconductor workflows, and research data QA.">
+  <meta property="og:title" content="Narges Shayesteh · Bioinformatics Analyst">
+  <meta property="og:description" content="Independent RNA-seq and single-cell reanalyses, reproducible workflows, and research data QA.">
+  <meta property="og:type" content="website">
+  <title>Narges Shayesteh · Bioinformatics</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f4f7fb;
+      --muted: #aebdce;
+      --canvas: #101c2d;
+      --panel: #17263a;
+      --line: #2b3d54;
+      --teal: #80e0cf;
+      --blue: #9eb7ff;
+      --max: 1080px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); line-height: 1.65; }
+    a { color: var(--teal); text-underline-offset: .22em; }
+    a:hover { color: #b5fff2; }
+    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 3px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    header { border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
+    .brand { color: var(--ink); font-weight: 720; letter-spacing: .01em; text-decoration: none; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .nav-links a { color: var(--muted); font-size: .93rem; text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .hero { padding: clamp(64px, 10vw, 112px) 0 76px; }
+    .eyebrow { color: var(--teal); font-size: .8rem; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { max-width: 800px; margin: 16px 0; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -.055em; line-height: 1.05; }
+    .hero p { max-width: 720px; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; min-height: 46px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); font-weight: 650; text-decoration: none; }
+    .button.primary { border-color: var(--teal); background: var(--teal); color: #102331; }
+    .button:hover { border-color: var(--teal); }
+    main section { padding: 66px 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 10px; font-size: clamp(1.65rem, 3vw, 2.2rem); letter-spacing: -.025em; }
+    .section-intro { max-width: 740px; margin: 0 0 28px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+    .featured { grid-column: 1 / -1; }
+    .card h3 { margin: 0 0 9px; font-size: 1.1rem; }
+    .card h3 a { color: var(--ink); text-decoration-color: var(--teal); }
+    .card p { margin: 0; color: var(--muted); }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric { padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+    .metric strong { display: block; color: var(--teal); font-size: 1.35rem; line-height: 1.3; }
+    .metric span { color: var(--muted); font-size: .82rem; }
+    .card .small-note { margin: 10px 0 14px; font-size: .88rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .tag { padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px; color: #c9d7e7; font-size: .79rem; }
+    .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .service { padding: 20px; border-left: 2px solid var(--teal); background: var(--panel); }
+    .service h3 { margin: 0 0 8px; font-size: 1rem; }
+    .service p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .note { max-width: 850px; margin-top: 22px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); }
+    .education { display: grid; grid-template-columns: 170px 1fr; gap: 20px; max-width: 780px; }
+    .year { color: var(--teal); font-weight: 700; }
+    .education p { margin: 0 0 5px; }
+    footer { padding: 28px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+    @media (max-width: 680px) {
+      .nav { align-items: flex-start; flex-direction: column; justify-content: center; padding: 14px 0; }
+      .nav-links { gap: 12px 18px; }
+      .grid, .services { grid-template-columns: 1fr; }
+      .featured { grid-column: auto; }
+      .education { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Narges Shayesteh</a>
+      <div class="nav-links">
+        <a href="#work">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="intro-title">
+      <div class="eyebrow">Bioinformatics · Research data</div>
+      <h1 id="intro-title">Clear, reproducible analysis for transcriptomics data.</h1>
+      <p>MSc biophysicist working with R/Bioconductor and Python. My portfolio shows independent RNA-seq and single-cell reanalyses, careful data checks, and workflows whose assumptions and limits are documented.</p>
+      <div class="actions">
+        <a class="button primary" href="https://www.linkedin.com/in/narges-shayesteh/">Contact on LinkedIn</a>
+        <a class="button" href="https://github.com/shayesteh68">View GitHub</a>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <h2 id="work-title">Selected work</h2>
+        <p class="section-intro">Independent reanalyses of public or example datasets. Each repository includes code, outputs, and project-specific limitations.</p>
+        <div class="grid">
+          <article class="card featured">
+            <div class="eyebrow">Featured case study · six samples</div>
+            <h3><a href="https://github.com/shayesteh68/LOY-BladderCancer-ImmuneEvasion-GSE290114">LOY bladder-cancer RNA-seq reanalysis</a></h3>
+            <p>Independent DESeq2 reanalysis of a mouse MB49 model: three Y-chromosome knockout samples and three controls.</p>
+            <div class="metrics" aria-label="Selected results from the stored analysis">
+              <div class="metric"><strong>16,684</strong><span>genes tested</span></div>
+              <div class="metric"><strong>765</strong><span>genes passing the stated DEG thresholds</span></div>
+              <div class="metric"><strong>181 / 584</strong><span>higher / lower in Y-KO</span></div>
+            </div>
+            <p class="small-note">Thresholds: BH-adjusted p &lt; 0.05 and |log2 fold change| ≥ 1. Counts are from the committed result tables; this small, exploratory dataset does not establish mechanism or clinical effect.</p>
+            <a href="https://github.com/shayesteh68/LOY-BladderCancer-ImmuneEvasion-GSE290114/blob/main/results/tables/summary.txt">Inspect the run summary</a>
+            <div class="tag-row"><span class="tag">R</span><span class="tag">DESeq2</span><span class="tag">Bulk RNA-seq</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="https://github.com/shayesteh68/ccRCC_GSE278174_salami">Paired ccRCC RNA-seq</a></h3>
+            <p>Paired-patient reanalysis using a provenance-checked sample map and a documented DESeq2 workflow.</p>
+            <div class="tag-row"><span class="tag">R</span><span class="tag">DESeq2</span><span class="tag">Paired design</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="https://github.com/shayesteh68/scRNAseq_Harmony_Integration">Harmony integration example</a></h3>
+            <p>Exploratory Seurat/Harmony integration. Differential expression is evaluated separately with raw-count donor-by-condition pseudobulk.</p>
+            <div class="tag-row"><span class="tag">Seurat v5</span><span class="tag">Harmony</span><span class="tag">Pseudobulk</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="https://github.com/shayesteh68/barrington-snrna-sex-dimorphism">Barrington snRNA-seq</a></h3>
+            <p>Pool-level pseudobulk analysis with marker evidence and provisional cell annotations.</p>
+            <div class="tag-row"><span class="tag">R</span><span class="tag">snRNA-seq</span><span class="tag">Pseudobulk</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="https://github.com/shayesteh68/Drosophila_scRNA_Stage6">Drosophila Stage 6 scRNA-seq</a></h3>
+            <p>Seurat v5 workflow for quality control, clustering, marker review, and provisional annotations.</p>
+            <div class="tag-row"><span class="tag">R</span><span class="tag">Seurat v5</span><span class="tag">Single-cell</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="https://github.com/shayesteh68/scrnaseq-seurat-pbmc3k">PBMC3K Seurat workflow</a></h3>
+            <p>Single-sample example with quality control, exploratory clusters, and provisional cell labels.</p>
+            <div class="tag-row"><span class="tag">R</span><span class="tag">Seurat</span><span class="tag">Single-sample</span></div>
+          </article>
+        </div>
+        <p class="note"><strong>In progress:</strong> <a href="https://github.com/shayesteh68/rnaseq-deseq2-srp043694">SRP043694 bulk RNA-seq workflow</a>. The public repository documents count-matrix and downstream analysis; a fresh full FASTQ-to-BAM rebuild remains pending.</p>
+        <p class="note">The S1P repository is not featured while source-data use and output refresh are unresolved. Public projects are independent case studies, not paid client engagements.</p>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <h2 id="services-title">How I can help</h2>
+        <p class="section-intro">Small, clearly scoped research-data tasks with written inputs, deliverables, and assumptions.</p>
+        <div class="services">
+          <article class="service"><h3>RNA-seq data QA</h3><p>Check a count matrix and sample sheet for identifier mismatches, duplicates, invalid counts, missing values, and basic design consistency.</p></article>
+          <article class="service"><h3>R workflow review</h3><p>Review a compact analysis script for reproducibility, input handling, common errors, and clear output reporting.</p></article>
+          <article class="service"><h3>Technical reporting</h3><p>Prepare a concise methods and QA note with figures and caveats tied to the supplied data and study design.</p></article>
+        </div>
+        <p class="note">Scope is agreed before work begins. These services do not include thesis or assignment completion, fabricated results, clinical advice, or claims of experimental validation.</p>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title">About</h2>
+        <div class="education">
+          <div class="year">1395 SH</div>
+          <div>
+            <p><strong>MSc in Biophysics</strong></p>
+            <p>Institute for Advanced Studies in Basic Sciences (IASBS), Zanjan, Iran</p>
+            <p>Thesis topic (informal summary): predicting whether proteins bind selected antibiotics using protein-sequence information. The formal title and methods will be added after checking the thesis document.</p>
+          </div>
+        </div>
+        <p class="note">Tools represented in the public portfolio include R, Bioconductor, DESeq2, Seurat, Python, Scanpy, Bash, Conda, and Git.</p>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Discuss a small project</h2>
+        <p class="section-intro">Send a short description of the dataset, study design, expected deliverables, and timeline. I will confirm whether the scope matches my experience before agreeing to the work.</p>
+        <div class="actions">
+          <a class="button primary" href="https://www.linkedin.com/in/narges-shayesteh/">Message me on LinkedIn</a>
+          <a class="button" href="https://github.com/shayesteh68">Review my GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© 2026 Narges Shayesteh</span><span>Independent analysis · Public datasets · Limits documented</span></div></footer>
+</body>
+</html>
