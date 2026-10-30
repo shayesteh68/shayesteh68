@@ -37,7 +37,7 @@ R, Bioconductor, DESeq2, Seurat, Python, Scanpy, Bash, Conda, and Git.
 
 ## Links
 
-- [Portfolio website](https://shayesteh68.github.io/)
+- [Portfolio website](https://shayesteh68.github.io/shayesteh68/)
 - [LinkedIn](https://www.linkedin.com/in/narges-shayesteh/)
 
 ## Data and interpretation
