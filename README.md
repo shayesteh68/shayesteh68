@@ -35,6 +35,10 @@ Thesis topic (informal summary): sequence-based prediction of whether proteins b
 
 R, Bioconductor, DESeq2, Seurat, Python, Scanpy, Bash, Conda, and Git.
 
+## Professional development
+
+- **HBC2024 Advanced Seminar: Healthcare, Bioinformatics, and Computational Biology** — certificate of attendance, March 13-14, 2024; organized by Rayazi Research Group and RSG-Iran. [View certificate](assets/HBC2024-attendance-certificate.pdf).
+
 ## Links
 
 - [Portfolio website](https://shayesteh68.github.io/shayesteh68/)
